@@ -44,6 +44,7 @@ The project is built with semantic HTML, CSS, and vanilla JavaScript. It does no
 - [Technology](#technology)
 - [Project structure](#project-structure)
 - [Run locally](#run-locally)
+- [Deploy with GitHub Pages](#deploy-with-github-pages)
 - [Demo accounts](#demo-accounts)
 - [Data, privacy, and limitations](#data-privacy-and-limitations)
 - [Maintaining the catalog](#maintaining-the-catalog)
@@ -135,6 +136,16 @@ py -m http.server 8000
 Then open **http://localhost:8000** in a browser. If the Python launcher is unavailable, use `python -m http.server 8000`.
 
 Stop the server with `Ctrl+C`.
+
+## Deploy with GitHub Pages
+
+The repository includes a GitHub Actions workflow that publishes the static app whenever `main` is updated. Before its first run, enable Pages in the repository settings:
+
+1. Open **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main` or run **Deploy to GitHub Pages** from the Actions tab.
+
+After a successful deployment, the site will be available at **https://tejas-c-0.github.io/Scholarship-Portal/**.
 
 ## Demo accounts
 
