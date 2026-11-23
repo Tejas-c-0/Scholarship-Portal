@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal — ScholarPath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- =======================================================================
+         ADMIN SIDEBAR
+         ======================================================================= -->
+    <aside class="sidebar admin-sidebar" id="admin-sidebar" aria-label="Admin Navigation">
+      
+      <!-- Brand -->
+      <div class="sidebar-header">
+        <a href="admin.html" class="navbar-brand">
+          <div class="brand-logo" style="background:linear-gradient(135deg, #ef4444, #f59e0b);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <span class="brand-name">Scholar<span class="text-gradient">Admin</span></span>
+        </a>
+      </div>
+
+      <!-- Admin Profile Box -->
+      <div class="sidebar-user" style="display:flex; align-items:center; gap:0.75rem; padding: 1rem; background: var(--bg-alt); border-radius: var(--radius-lg); margin: 0.5rem 1rem 1rem 1rem;">
+        <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg, #ef4444, #f59e0b); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.05rem;">
+          SF
+        </div>
+        <div style="overflow:hidden;">
+          <div style="font-weight:600; font-size:var(--text-sm); white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" id="admin-user-name">Syed Fazil (Admin)</div>
+          <div class="text-muted" style="font-size:var(--text-xs);">DSU Nodal Officer</div>
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="sidebar-nav" style="padding: 0 0.75rem; display:flex; flex-direction:column; gap:0.35rem;">
+        <div class="sidebar-section-label" style="font-size:var(--text-xs); text-transform:uppercase; color:var(--text-muted); font-weight:700; padding: 0.5rem 0.5rem 0.25rem 0.5rem;">Administration</div>
+
+        <a href="javascript:void(0)" class="sidebar-link active" data-tab="dashboard" aria-current="page">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard Overview</span>
+        </a>
+
+        <a href="javascript:void(0)" class="sidebar-link" data-tab="scholarships">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M15 9.5a3.5 3.5 0 0 0-5 0 3.5 3.5 0 0 0 0 5h2a3.5 3.5 0 0 1 0 5 3.5 3.5 0 0 1-5 0"></path></svg>
+          <span>Manage Scholarships</span>
+        </a>
+
+        <a href="javascript:void(0)" class="sidebar-link" data-tab="applications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Review Applications</span>
+        </a>
+
+        <a href="javascript:void(0)" class="sidebar-link" data-tab="analytics">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Analytics & Reports</span>
+        </a>
+
+        <div class="sidebar-section-label" style="font-size:var(--text-xs); text-transform:uppercase; color:var(--text-muted); font-weight:700; padding: 1.25rem 0.5rem 0.25rem 0.5rem;">System</div>
+
+        <a href="javascript:void(0)" class="sidebar-link" data-tab="settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Backup & Settings</span>
+        </a>
+
+        <a href="index.html" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          <span>View Public Site</span>
+        </a>
+
+        <a href="javascript:void(0)" onclick="Auth.logout()" class="sidebar-link" style="color:var(--danger);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Sign Out Admin</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer" style="margin-top:auto; padding:1rem; border-top:1px solid var(--border); font-size:var(--text-xs); color:var(--text-muted);">
+        Dayananda Sagar University<br>
+        Admin Portal v2.0 • DBT Active
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         MAIN ADMIN CONTENT
+         ======================================================================= -->
+    <main class="main-content" style="flex:1; overflow-y:auto; background:var(--bg);">
+      
+      <!-- Topbar -->
+      <header class="topbar" style="background:var(--surface); border-bottom:1px solid var(--border); padding:0.75rem 1.5rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:30;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button class="btn btn-icon btn-outline d-md-none" id="admin-sidebar-toggle"
+                  aria-label="Toggle admin navigation" aria-controls="admin-sidebar" aria-expanded="false" onclick="toggleAdminSidebar()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; margin:0;">Administrative Control Center</h2>
+            <small class="text-muted">Dayananda Sagar University • Project Team: Syed Fazil, Tejas C, Puneeth Kumar</small>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="container" style="padding: 1.75rem 1.5rem;">
+        
+        <!-- ===================================================================
+             TAB 1: DASHBOARD OVERVIEW
+             =================================================================== -->
+        <section id="section-dashboard" class="admin-section active">
+          
+          <!-- KPI Stats -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:1.25rem; margin-bottom:2rem;">
+            
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Scholarships in Catalog</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--primary); margin:0.25rem 0;" id="dash-total-scholarships">16</div>
+              <small class="text-muted">Central, State & CSR listings</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Open for Applications</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--success); margin:0.25rem 0;" id="dash-open-scholarships">0</div>
+              <small class="text-muted">Based on the listed application deadline</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Student Applications</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--heading); margin:0.25rem 0;" id="dash-total-apps">3</div>
+              <small class="text-muted">Recorded across all terms</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Pending Nodal Scrutiny</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--warning); margin:0.25rem 0;" id="dash-pending-apps">2</div>
+              <small class="text-muted">Awaiting document verification</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Sanctioned & Disbursed</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--success); margin:0.25rem 0;" id="dash-approved-apps">1</div>
+              <small class="text-muted">DBT bank transfer completed</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Total Disbursed</span>
+              <div style="font-size:1.6rem; font-weight:700; color:var(--success); margin:0.25rem 0;" id="dash-total-disbursed">₹1,00,000</div>
+              <small class="text-muted">Direct to student accounts</small>
+            </div>
+
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div style="display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="window.AdminModule.openScholarshipModal()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              + Create New Scholarship
+            </button>
+            <button class="btn btn-outline" onclick="window.AdminModule.switchTab('applications')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              Review Pending Applications →
+            </button>
+            <button class="btn btn-outline" onclick="window.AdminModule.switchTab('analytics')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              View Analytics Charts →
+            </button>
+          </div>
+
+          <!-- Recent Applications Table in Dashboard -->
+          <div class="card" style="padding:0; overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-xl);">
+            <div style="padding:1.25rem 1.5rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+              <h3 style="font-size:1.15rem; margin:0;">Recent Application Submissions</h3>
+              <a href="javascript:void(0)" onclick="window.AdminModule.switchTab('applications')" style="font-size:var(--text-sm); color:var(--primary); font-weight:600;">View All →</a>
+            </div>
+            <table class="table" style="width:100%; border-collapse:collapse; text-align:left; font-size:var(--text-sm);">
+              <thead>
+                <tr style="background:var(--bg-alt); border-bottom:1px solid var(--border);">
+                  <th style="padding:0.75rem 1.25rem;">App ID</th>
+                  <th style="padding:0.75rem 1.25rem;">Student Name</th>
+                  <th style="padding:0.75rem 1.25rem;">Scholarship Targeted</th>
+                  <th style="padding:0.75rem 1.25rem;">Date</th>
+                  <th style="padding:0.75rem 1.25rem;">Status</th>
+                  <th style="padding:0.75rem 1.25rem;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="dash-recent-apps-body">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+        <!-- ===================================================================
+             TAB 2: MANAGE SCHOLARSHIPS
+             =================================================================== -->
+        <section id="section-scholarships" class="admin-section" hidden>
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 style="font-size:1.5rem; margin:0 0 0.25rem 0;">Scholarship Scheme Catalog</h2>
+              <p class="text-muted" style="margin:0; font-size:var(--text-sm);">Add, edit, or configure eligibility criteria for university grants.</p>
+            </div>
+            <button class="btn btn-primary" onclick="window.AdminModule.openScholarshipModal()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              + Add New Scholarship
+            </button>
+          </div>
+
+          <!-- Search Filter Bar -->
+          <div class="card glass-card" style="padding:0.75rem 1.25rem; margin-bottom:1.5rem;">
+            <input type="text" id="admin-scholarship-search" class="form-input" style="border:none; box-shadow:none;" placeholder="Search scholarships by title, provider, or category...">
+          </div>
+
+          <!-- Scholarships Table -->
+          <div class="card" style="padding:0; overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-xl);">
+            <table class="table" style="width:100%; border-collapse:collapse; text-align:left; font-size:var(--text-sm);">
+              <thead>
+                <tr style="background:var(--bg-alt); border-bottom:1px solid var(--border);">
+                  <th style="padding:0.875rem 1rem;">ID</th>
+                  <th style="padding:0.875rem 1rem;">Scholarship & Provider</th>
+                  <th style="padding:0.875rem 1rem;">Category</th>
+                  <th style="padding:0.875rem 1rem;">Award Amount</th>
+                  <th style="padding:0.875rem 1rem;">Deadline</th>
+                  <th style="padding:0.875rem 1rem;">Applications</th>
+                  <th style="padding:0.875rem 1rem;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-scholarships-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+        <!-- ===================================================================
+             TAB 3: REVIEW APPLICATIONS
+             =================================================================== -->
+        <section id="section-applications" class="admin-section" hidden>
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h2 style="font-size:1.5rem; margin:0 0 0.25rem 0;">Application Scrutiny & Review</h2>
+              <p class="text-muted" style="margin:0; font-size:var(--text-sm);">Validate student documents, record institutional remarks, and sanction grants.</p>
+            </div>
+            
+            <div style="max-width:320px; width:100%;">
+              <input type="text" id="admin-apps-search" class="form-input" placeholder="Search by student name, email, or App ID...">
+            </div>
+          </div>
+
+          <!-- Status Filter Tabs -->
+          <div style="display:flex; gap:0.5rem; margin-bottom:1.25rem; overflow-x:auto;">
+            <button class="btn btn-sm btn-primary app-filter-tab active" data-filter="all">All Applications</button>
+            <button class="btn btn-sm btn-outline app-filter-tab" data-filter="Submitted">Submitted</button>
+            <button class="btn btn-sm btn-outline app-filter-tab" data-filter="Under Review">Under Review</button>
+            <button class="btn btn-sm btn-outline app-filter-tab" data-filter="Verified">Verified</button>
+            <button class="btn btn-sm btn-outline app-filter-tab" data-filter="Approved">Approved</button>
+            <button class="btn btn-sm btn-outline app-filter-tab" data-filter="Rejected">Rejected</button>
+          </div>
+
+          <!-- Applications Table -->
+          <div class="card" style="padding:0; overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-xl);">
+            <table class="table" style="width:100%; border-collapse:collapse; text-align:left; font-size:var(--text-sm);">
+              <thead>
+                <tr style="background:var(--bg-alt); border-bottom:1px solid var(--border);">
+                  <th style="padding:0.875rem 1rem;">App ID</th>
+                  <th style="padding:0.875rem 1rem;">Student Details</th>
+                  <th style="padding:0.875rem 1rem;">Scholarship</th>
+                  <th style="padding:0.875rem 1rem;">Date</th>
+                  <th style="padding:0.875rem 1rem;">Award Amount</th>
+                  <th style="padding:0.875rem 1rem;">Status</th>
+                  <th style="padding:0.875rem 1rem;">Review Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-apps-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+        <!-- ===================================================================
+             TAB 4: ANALYTICS & CANVAS 2D CHARTS (ZERO EXTERNAL LIBRARIES)
+             =================================================================== -->
+        <section id="section-analytics" class="admin-section" hidden>
+          
+          <div style="margin-bottom:2rem;">
+            <span class="badge badge-primary">Data Intelligence</span>
+            <h2 style="font-size:1.5rem; margin:0.25rem 0 0.25rem 0;">Analytics & Disbursement Overview</h2>
+            <p class="text-muted" style="margin:0; font-size:var(--text-sm);">Visual distribution curves and performance metrics rendered with native HTML5 Canvas 2D.</p>
+          </div>
+
+          <!-- 4 Analytics KPI Cards -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:1.25rem; margin-bottom:2rem;">
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Total Application Volume</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--heading); margin:0.25rem 0;" id="analytics-total-apps">3</div>
+              <small class="text-muted">Submissions across all departments</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Institutional Approval Rate</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--success); margin:0.25rem 0;" id="analytics-approval-rate">67%</div>
+              <small class="text-muted">Cleared scrutiny checks</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Cumulative DBT Disbursed</span>
+              <div style="font-size:1.75rem; font-weight:700; color:var(--success); margin:0.25rem 0;" id="analytics-disbursed">₹1,00,000</div>
+              <small class="text-muted">Credit batches executed</small>
+            </div>
+
+            <div class="card glass-card" style="padding:1.25rem;">
+              <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:700;">Avg. Scrutiny Turnaround</span>
+              <div style="font-size:2rem; font-weight:700; color:var(--info); margin:0.25rem 0;" id="analytics-avg-days">14 Days</div>
+              <small class="text-muted">Target: under 21 days</small>
+            </div>
+          </div>
+
+          <!-- 4 Pure Canvas 2D Charts Grid -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap:1.75rem;">
+            
+            <!-- Chart 1: Applications per Scholarship (Horizontal Bar) -->
+            <div class="card glass-card" style="padding:1.5rem;">
+              <h3 style="font-size:1.1rem; margin:0 0 1rem 0;">Top Scholarships by Application Volume</h3>
+              <div style="width:100%; height:260px; position:relative;">
+                <canvas id="chart-apps-per-scholarship" style="width:100%; height:100%; display:block;"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: Status Distribution (Doughnut) -->
+            <div class="card glass-card" style="padding:1.5rem;">
+              <h3 style="font-size:1.1rem; margin:0 0 1rem 0;">Application Status Distribution</h3>
+              <div style="width:100%; height:260px; position:relative;">
+                <canvas id="chart-status-distribution" style="width:100%; height:100%; display:block;"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 3: Weekly Submissions (Line) -->
+            <div class="card glass-card" style="padding:1.5rem;">
+              <h3 style="font-size:1.1rem; margin:0 0 1rem 0;">Application Submissions Over Time</h3>
+              <div style="width:100%; height:260px; position:relative;">
+                <canvas id="chart-timeline" style="width:100%; height:100%; display:block;"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 4: Categories Breakdown (Vertical Bar) -->
+            <div class="card glass-card" style="padding:1.5rem;">
+              <h3 style="font-size:1.1rem; margin:0 0 1rem 0;">Grants Available by Scheme Category</h3>
+              <div style="width:100%; height:260px; position:relative;">
+                <canvas id="chart-categories" style="width:100%; height:100%; display:block;"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- ===================================================================
+             TAB 5: SYSTEM BACKUP & SETTINGS
+             =================================================================== -->
+        <section id="section-settings" class="admin-section" hidden>
+          
+          <div style="max-width:700px;">
+            <h2 style="font-size:1.5rem; margin:0 0 0.5rem 0;">Portal Maintenance & Data Export</h2>
+            <p class="text-muted" style="margin-bottom:2rem; font-size:var(--text-sm);">
+              Manage data backups, institution configuration, and test data resets.
+            </p>
+
+            <div class="card glass-card" style="padding:1.75rem; margin-bottom:1.5rem;">
+              <h3 style="font-size:1.15rem; margin:0 0 0.5rem 0;">Export All Database Records (JSON)</h3>
+              <p class="text-muted" style="font-size:var(--text-sm); margin-bottom:1.25rem;">
+                Download a complete, offline JSON backup file of all registered students, applications, and scholarship schemes.
+              </p>
+              <button class="btn btn-primary" onclick="window.AdminModule.exportData()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Data Backup (.json)
+              </button>
+            </div>
+
+            <div class="card glass-card" style="padding:1.75rem; border:1px solid rgba(239, 68, 68, 0.3);">
+              <h3 style="font-size:1.15rem; color:var(--danger); margin:0 0 0.5rem 0;">Danger Zone: Reset Student Applications</h3>
+              <p class="text-muted" style="font-size:var(--text-sm); margin-bottom:1.25rem;">
+                Clears all submitted test applications from browser localStorage to test fresh submissions.
+              </p>
+              <button class="btn btn-danger" onclick="window.AdminModule.clearAllApplications()">
+                Clear All Applications
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+    <div class="sidebar-overlay" id="admin-sidebar-overlay" aria-hidden="true" onclick="closeAdminSidebar()"></div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+
+  <script>
+    function toggleAdminSidebar() {
+      const sidebar = document.getElementById('admin-sidebar');
+      const overlay = document.getElementById('admin-sidebar-overlay');
+      const toggle = document.getElementById('admin-sidebar-toggle');
+      const open = sidebar.classList.toggle('open');
+      overlay.classList.toggle('show', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    }
+
+    function closeAdminSidebar() {
+      document.getElementById('admin-sidebar').classList.remove('open');
+      document.getElementById('admin-sidebar-overlay').classList.remove('show');
+      document.getElementById('admin-sidebar-toggle').setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      UI.initTheme();
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeAdminSidebar();
+      });
+
+      // Guard & initialize Admin Module
+      if (window.AdminModule && typeof window.AdminModule.init === 'function') {
+        window.AdminModule.init();
+      }
+    });
+  </script>
+</body>
+</html>

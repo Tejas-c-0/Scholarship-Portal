@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard — ScholarPath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+
+  <div class="app-layout">
+    
+    <!-- =======================================================================
+         SIDEBAR NAVIGATION
+         ======================================================================= -->
+    <aside class="sidebar" id="app-sidebar" aria-label="Student Navigation">
+      
+      <!-- Brand Header -->
+      <div class="sidebar-header">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <span class="brand-name">Scholar<span class="text-gradient">Path</span></span>
+        </a>
+      </div>
+
+      <!-- User Mini Profile -->
+      <div class="sidebar-user" style="display:flex; align-items:center; gap:0.75rem; padding: 1rem; background: var(--bg-alt); border-radius: var(--radius-lg); margin: 0.5rem 1rem 1rem 1rem;">
+        <div class="sidebar-user-avatar" id="sidebar-avatar" style="width:42px; height:42px; border-radius:50%; background:var(--gradient-primary); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.05rem;">
+          AS
+        </div>
+        <div style="overflow:hidden;">
+          <div class="sidebar-user-name" id="sidebar-user-name" style="font-weight:600; font-size:var(--text-sm); white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">Arjun Sharma</div>
+          <div class="sidebar-user-email text-muted" id="sidebar-user-email" style="font-size:var(--text-xs); white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">arjun@student.com</div>
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="sidebar-nav" style="padding: 0 0.75rem; display:flex; flex-direction:column; gap:0.35rem;">
+        <div class="sidebar-section-label" style="font-size:var(--text-xs); text-transform:uppercase; color:var(--text-muted); font-weight:700; padding: 0.5rem 0.5rem 0.25rem 0.5rem;">Main Menu</div>
+        
+        <a href="dashboard.html" class="sidebar-link active" aria-current="page">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="scholarships.html" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Browse Scholarships</span>
+        </a>
+
+        <a href="track.html" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span>My Applications</span>
+          <span class="sidebar-badge badge badge-primary" id="sidebar-app-count">3</span>
+        </a>
+
+        <a href="scholarships.html?bookmarks=true" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <span>Saved Bookmarks</span>
+        </a>
+
+        <div class="sidebar-section-label" style="font-size:var(--text-xs); text-transform:uppercase; color:var(--text-muted); font-weight:700; padding: 1.25rem 0.5rem 0.25rem 0.5rem;">Account</div>
+
+        <a href="index.html" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          <span>Public Portal</span>
+        </a>
+
+        <a href="javascript:void(0)" onclick="Auth.logout()" class="sidebar-link" style="color:var(--danger);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Sign Out</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer" style="margin-top:auto; padding:1rem; border-top:1px solid var(--border); font-size:var(--text-xs); color:var(--text-muted);">
+        Dayananda Sagar University<br>
+        B.Tech CSE Project • 2025
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true" onclick="toggleSidebar()"></div>
+
+    <!-- =======================================================================
+         MAIN CONTENT AREA
+         ======================================================================= -->
+    <main class="main-content">
+      
+      <!-- Topbar Header -->
+      <header class="topbar" style="background:var(--surface); border-bottom:1px solid var(--border); padding:0.75rem 1.5rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:30;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button class="btn btn-icon btn-outline d-md-none" id="mobile-sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="app-sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div>
+            <h2 style="font-size:1.25rem; margin:0;" id="topbar-greeting">Welcome back, Arjun! 👋</h2>
+            <small class="text-muted" id="topbar-subtext">Dayananda Sagar University • B.Tech CSE (3rd Year)</small>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <!-- Notification Bell -->
+          <button class="btn btn-icon btn-outline" id="notif-bell-btn" onclick="openNotificationsModal()" aria-label="Notifications" title="Notifications" style="position:relative;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span id="notif-unread-badge" style="position:absolute; top:4px; right:4px; width:8px; height:8px; background:var(--danger); border-radius:50%;"></span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="container dashboard-content" style="padding: 1.75rem 1.5rem;">
+        
+        <!-- ===================================================================
+             WELCOME BANNER
+             =================================================================== -->
+        <div class="card glass-card dashboard-welcome" style="background:var(--gradient-primary); color:#ffffff; padding:1.75rem 2rem; border-radius:var(--radius-xl); margin-bottom:1.75rem; position:relative; overflow:hidden;">
+          <div style="max-width:650px; position:relative; z-index:2;">
+            <span class="badge dashboard-welcome-badge" style="background:rgba(255,255,255,0.2); color:#fff; margin-bottom:0.75rem;">Your scholarship dashboard</span>
+            <h1 style="color:#ffffff; font-size:1.75rem; margin-bottom:0.5rem;" id="banner-greeting-headline">Finding scholarships open to you</h1>
+            <p id="dashboard-match-summary" style="color:rgba(255,255,255,0.85); font-size:0.95rem; margin-bottom:1.25rem;">
+              Your open scholarship matches and application links will appear here.
+            </p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a href="scholarships.html" class="btn btn-sm" style="background:#ffffff; color:var(--primary); font-weight:600;">Browse All Matches →</a>
+              <a href="track.html" class="btn btn-sm btn-outline" style="color:#ffffff; border-color:rgba(255,255,255,0.4);">View Submitted Tracker</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             STATS CARDS ROW (4 METRICS)
+             =================================================================== -->
+        <div class="stats-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; margin-bottom:1.75rem;">
+          
+          <div class="card glass-card" style="padding:1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:600;">Total Submitted</span>
+                <div style="font-size:1.85rem; font-weight:700; color:var(--heading); margin-top:0.25rem;" id="stat-total-submitted">3</div>
+              </div>
+              <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(79, 70, 229, 0.1); color:var(--primary); display:flex; align-items:center; justify-content:center;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+            </div>
+            <div style="margin-top:0.75rem; font-size:var(--text-xs); color:var(--success);">Your application history</div>
+          </div>
+
+          <div class="card glass-card" style="padding:1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:600;">Under Review / Scrutiny</span>
+                <div style="font-size:1.85rem; font-weight:700; color:var(--heading); margin-top:0.25rem;" id="stat-under-review">2</div>
+              </div>
+              <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(245, 158, 11, 0.1); color:var(--warning); display:flex; align-items:center; justify-content:center;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+            </div>
+            <div style="margin-top:0.75rem; font-size:var(--text-xs); color:var(--warning);">In institutional verification stage</div>
+          </div>
+
+          <div class="card glass-card" style="padding:1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:600;">Approved & Sanctioned</span>
+                <div style="font-size:1.85rem; font-weight:700; color:var(--heading); margin-top:0.25rem;" id="stat-approved">1</div>
+              </div>
+              <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(16, 185, 129, 0.1); color:var(--success); display:flex; align-items:center; justify-content:center;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+            </div>
+            <div id="stat-approved-amount" style="margin-top:0.75rem; font-size:var(--text-xs); color:var(--success);">Approved application total</div>
+          </div>
+
+          <div class="card glass-card" style="padding:1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span class="text-muted" style="font-size:var(--text-xs); text-transform:uppercase; font-weight:600;">Saved Bookmarks</span>
+                <div style="font-size:1.85rem; font-weight:700; color:var(--heading); margin-top:0.25rem;" id="stat-bookmarks">3</div>
+              </div>
+              <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(14, 165, 233, 0.1); color:var(--info); display:flex; align-items:center; justify-content:center;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+            </div>
+            <div style="margin-top:0.75rem; font-size:var(--text-xs); color:var(--text-muted);">Saved for future applications</div>
+          </div>
+
+        </div>
+
+        <!-- ===================================================================
+             TWO COLUMN: PROFILE COMPLETION RING + UPCOMING DEADLINES
+             =================================================================== -->
+        <div class="dashboard-middle-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.75rem; margin-bottom:2rem;">
+          
+          <!-- Profile Completion Card with Animated SVG Ring -->
+          <div class="card glass-card dashboard-deadlines-card" style="padding:1.75rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+              <h3 style="font-size:1.15rem; margin:0;">Profile Completion</h3>
+              <span class="badge badge-success" id="profile-readiness">Profile details</span>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
+              <!-- SVG Ring -->
+              <div style="position:relative; width:120px; height:120px; flex-shrink:0;">
+                <svg width="120" height="120" viewBox="0 0 120 120" style="transform: rotate(-90deg);">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="var(--border)" stroke-width="10"></circle>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="var(--primary)" stroke-width="10"
+                          stroke-dasharray="314.159" stroke-dashoffset="31.415" stroke-linecap="round"
+                          style="transition: stroke-dashoffset 1s ease-in-out;" id="profile-completion-ring"></circle>
+                </svg>
+                <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                  <span id="profile-completion-percent" style="font-size:1.5rem; font-weight:700; color:var(--heading);">0%</span>
+                  <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">Complete</span>
+                </div>
+              </div>
+
+              <!-- Completion Checklist -->
+              <div style="flex:1; font-size:var(--text-sm); display:flex; flex-direction:column; gap:0.5rem;">
+                <div id="profile-personal">Personal & contact information</div>
+                <div id="profile-academic">Academic information</div>
+                <div id="profile-financial">Income & category information</div>
+              </div>
+            </div>
+
+            <div style="margin-top:1.25rem; border-top:1px solid var(--border); padding-top:1rem;">
+              <small class="text-muted">A complete profile helps tailor recommendations. The scholarship provider makes the final eligibility decision.</small>
+            </div>
+          </div>
+
+          <!-- Upcoming Deadlines Card -->
+          <div class="card glass-card" style="padding:1.75rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+              <h3 style="font-size:1.15rem; margin:0;">Upcoming Deadlines</h3>
+              <a href="scholarships.html" style="font-size:var(--text-xs); color:var(--primary); font-weight:600;">View All →</a>
+            </div>
+
+            <div id="upcoming-deadlines-list" style="display:flex; flex-direction:column; gap:1rem;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ===================================================================
+             SMART AI-RECOMMENDED SCHOLARSHIPS
+             =================================================================== -->
+        <section style="margin-bottom:2.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+            <div>
+              <span class="badge badge-primary">Open to applications</span>
+              <h2 style="font-size:1.35rem; margin:0.35rem 0 0 0;">Open scholarship matches</h2>
+            </div>
+            <a href="scholarships.html" class="btn btn-outline btn-sm">Browse scholarship catalog →</a>
+          </div>
+
+          <div class="dashboard-scholarship-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap:1.25rem;" id="recommended-scholarships-grid" aria-live="polite">
+            <!-- Dynamically populated with smart match scores -->
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             RECENT APPLICATIONS TRACKER TABLE
+             =================================================================== -->
+        <section style="margin-bottom:2.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+            <div>
+              <h2 style="font-size:1.35rem; margin:0;">Application Milestones</h2>
+              <p class="text-muted" style="margin:0.2rem 0 0 0; font-size:var(--text-sm);">Review the application records and status updates saved in ScholarPath.</p>
+            </div>
+            <a href="track.html" class="btn btn-primary btn-sm">Full Tracker View →</a>
+          </div>
+
+          <div class="card" style="padding:0; overflow-x:auto; border:1px solid var(--border);">
+            <table class="table" style="width:100%; border-collapse:collapse; text-align:left; font-size:var(--text-sm);">
+              <thead>
+                <tr style="background:var(--bg-alt); border-bottom:1px solid var(--border);">
+                  <th style="padding:0.875rem 1rem;">Application ID</th>
+                  <th style="padding:0.875rem 1rem;">Scholarship Name</th>
+                  <th style="padding:0.875rem 1rem;">Submitted Date</th>
+                  <th style="padding:0.875rem 1rem;">Award Amount</th>
+                  <th style="padding:0.875rem 1rem;">Current Status</th>
+                  <th style="padding:0.875rem 1rem; text-align:right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-recent-apps-body">
+                <!-- Dynamically populated from Storage -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Route Guard: Must be signed in as student
+      Auth.requireAuth();
+      Auth.requireStudent();
+
+      UI.initTheme();
+
+      const currentUser = Auth.getCurrentUser();
+      if (!currentUser) return;
+
+      // 2. Populate User details in header and sidebar
+      setupUserDisplay(currentUser);
+      renderProfileCompletion(currentUser);
+
+      // 3. Populate Dashboard Stats
+      renderDashboardStats(currentUser);
+
+      // 4. Show currently open scholarships and their application links
+      renderOpenScholarshipOverview(currentUser);
+
+      // 5. Render Upcoming Deadlines
+      renderUpcomingDeadlines();
+
+      // 6. Render Top Recommended Scholarships
+      renderRecommendedScholarships(currentUser);
+
+      // 7. Render Recent Applications
+      renderRecentApplications(currentUser);
+    });
+
+    function setupUserDisplay(user) {
+      const name = user.name || 'Arjun Sharma';
+      const initials = name.split(' ').map(n=>n[0]).join('').slice(0, 2);
+
+      const avatar = document.getElementById('sidebar-avatar');
+      if (avatar) avatar.textContent = initials;
+
+      const userName = document.getElementById('sidebar-user-name');
+      if (userName) userName.textContent = name;
+
+      const userEmail = document.getElementById('sidebar-user-email');
+      if (userEmail) userEmail.textContent = user.email || 'student@dsu.edu.in';
+
+      // Greeting
+      const greetingEl = document.getElementById('topbar-greeting');
+      const hour = new Date().getHours();
+      let timeGreeting = 'Good morning';
+      if (hour >= 12 && hour < 17) timeGreeting = 'Good afternoon';
+      else if (hour >= 17) timeGreeting = 'Good evening';
+
+      if (greetingEl) greetingEl.textContent = `${timeGreeting}, ${name.split(' ')[0]}! 👋`;
+
+      const subtext = document.getElementById('topbar-subtext');
+      if (subtext) subtext.textContent = `${user.institution || 'Dayananda Sagar University'} • ${user.course || 'B.Tech CSE'} (Year ${user.year || 3})`;
+    }
+
+    function renderProfileCompletion(user) {
+      const personalComplete = Boolean(user.name && user.email);
+      const academicComplete = Boolean(
+        user.institution && user.course && user.year &&
+        user.cgpa !== undefined && user.cgpa !== null && user.cgpa !== ''
+      );
+      const financialComplete = Boolean(
+        user.category && user.income !== undefined && user.income !== null && user.income !== ''
+      );
+      const checks = [
+        ['profile-personal', personalComplete, 'Personal & contact information'],
+        ['profile-academic', academicComplete, 'Academic information'],
+        ['profile-financial', financialComplete, 'Income & category information']
+      ];
+      const completed = checks.filter(([, isComplete]) => isComplete).length;
+      const percent = Math.round((completed / checks.length) * 100);
+      const percentEl = document.getElementById('profile-completion-percent');
+      const ring = document.getElementById('profile-completion-ring');
+      const badge = document.getElementById('profile-readiness');
+
+      if (percentEl) percentEl.textContent = `${percent}%`;
+      if (ring) ring.setAttribute('stroke-dashoffset', String(314.159 * (1 - percent / 100)));
+      if (badge) {
+        badge.textContent = percent === 100 ? 'Profile complete' : 'Profile needs details';
+        badge.classList.toggle('badge-success', percent === 100);
+        badge.classList.toggle('badge-warning', percent < 100);
+      }
+
+      checks.forEach(([id, isComplete, label]) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+        element.textContent = `${isComplete ? '✓' : '○'} ${label}`;
+        element.style.color = isComplete ? 'var(--success)' : 'var(--text-muted)';
+      });
+    }
+
+    function renderDashboardStats(user) {
+      const apps = Storage.getApplications(user.id);
+      const bookmarks = Storage.getBookmarks(user.id);
+
+      const submittedCount = apps.length;
+      const underReviewCount = apps.filter(a => a.status === 'Under Review' || a.status === 'Verified').length;
+      const approvedCount = apps.filter(a => a.status === 'Approved').length;
+
+      document.getElementById('stat-total-submitted').textContent = submittedCount;
+      document.getElementById('stat-under-review').textContent = underReviewCount;
+      document.getElementById('stat-approved').textContent = approvedCount;
+      document.getElementById('stat-bookmarks').textContent = bookmarks.length;
+      document.getElementById('sidebar-app-count').textContent = submittedCount;
+
+      const approvedTotal = apps
+        .filter(a => a.status === 'Approved')
+        .reduce((total, app) => total + (Number(app.amount) || 0), 0);
+      const approvedAmount = document.getElementById('stat-approved-amount');
+      if (approvedAmount) {
+        approvedAmount.textContent = approvedTotal
+          ? `₹${approvedTotal.toLocaleString('en-IN')} approved`
+          : 'No approved award yet';
+      }
+    }
+
+    function getOpenScholarships() {
+      return Storage.getScholarships().filter(s => {
+        const days = UI.daysUntil(s.deadline);
+        return Number.isFinite(days) && days >= 0;
+      });
+    }
+
+    function renderOpenScholarshipOverview(user) {
+      const openScholarships = getOpenScholarships();
+      const headline = document.getElementById('banner-greeting-headline');
+      const summary = document.getElementById('dashboard-match-summary');
+      if (!headline || !summary) return;
+
+      if (openScholarships.length === 0) {
+        headline.textContent = 'No saved scholarship deadlines are currently open';
+        summary.innerHTML = `The sample listings have passed their deadlines. Check the <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline;">National Scholarship Portal</a> for current application windows, or review the saved catalog for the next cycle.`;
+        return;
+      }
+
+      const highMatches = openScholarships.filter(s =>
+        UI.calculateRecommendationScore(user, s) >= 70
+      ).length;
+      headline.textContent = `${openScholarships.length} scholarship${openScholarships.length === 1 ? '' : 's'} open for applications`;
+      summary.textContent = highMatches
+        ? `${highMatches} open ${highMatches === 1 ? 'listing is' : 'listings are'} a strong match for your profile. Open a listing below to continue to its official application site.`
+        : 'Compare eligibility and deadlines, then continue to the official application site.';
+    }
+
+    function renderUpcomingDeadlines() {
+      const list = document.getElementById('upcoming-deadlines-list');
+      if (!list) return;
+
+      const sorted = getOpenScholarships()
+        .sort((a, b) => UI.daysUntil(a.deadline) - UI.daysUntil(b.deadline))
+        .slice(0, 3);
+
+      if (sorted.length === 0) {
+        list.innerHTML = `
+          <div class="dashboard-empty-state">
+            <p>No scholarships in the saved catalog have an open deadline right now.</p>
+            <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Check the official NSP portal ↗</a>
+            <a href="scholarships.html" class="dashboard-inline-link">Browse saved listings for the next cycle</a>
+          </div>`;
+        return;
+      }
+
+      list.innerHTML = sorted.map(s => {
+        const days = UI.daysUntil(s.deadline);
+        const deadlineClass = UI.getDeadlineClass(s.deadline);
+        const officialLink = UI.getOfficialApplyLink(s);
+        return `
+          <div class="dashboard-deadline-row">
+            <div>
+              <div class="dashboard-scholarship-name">${s.name}</div>
+              <small class="text-muted">${s.provider} • ${s.amountDisplay || `₹${Number(s.amount).toLocaleString('en-IN')}`}</small>
+            </div>
+            <div class="dashboard-deadline-action">
+              <span class="badge ${deadlineClass}">${days > 0 ? `${days} days left` : 'Closes today'}</span>
+              ${officialLink
+                ? `<a href="${officialLink}" target="_blank" rel="noopener noreferrer" class="dashboard-inline-link">Official site ↗</a>`
+                : `<a href="apply.html?id=${encodeURIComponent(s.id)}" class="dashboard-inline-link">Prepare application →</a>`}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderRecommendedScholarships(user) {
+      const grid = document.getElementById('recommended-scholarships-grid');
+      if (!grid) return;
+
+      const scholarships = getOpenScholarships();
+      const bookmarks = Storage.getBookmarks(user.id);
+
+      // Score each scholarship
+      const scored = scholarships.map(s => ({
+        ...s,
+        score: UI.calculateRecommendationScore(user, s)
+      })).sort((a, b) => b.score - a.score).slice(0, 3);
+
+      if (scored.length === 0) {
+        grid.innerHTML = `
+          <div class="dashboard-empty-state dashboard-no-matches">
+            <h3>No open matches to apply for yet</h3>
+            <p>These demo listings have expired deadlines. Check the official portal for current opportunities, or save this catalog for the next application cycle.</p>
+            <div>
+              <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit National Scholarship Portal ↗</a>
+              <a href="scholarships.html" class="btn btn-outline">Browse saved listings</a>
+            </div>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = scored.map(s => {
+        const isBookmarked = bookmarks.includes(s.id);
+        const amountStr = s.amountDisplay || `₹${s.amount.toLocaleString('en-IN')}/year`;
+        const officialLink = UI.getOfficialApplyLink(s);
+        return `
+          <article class="card glass-card dashboard-scholarship-card">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+                <span class="badge badge-success" style="font-weight:700;">${s.score}% profile match</span>
+                <button class="btn btn-icon btn-ghost bookmark-btn" onclick="toggleDashboardBookmark('${s.id}', this)" title="${isBookmarked ? 'Remove Bookmark' : 'Save Scholarship'}" aria-label="${isBookmarked ? 'Remove bookmark' : 'Save scholarship'}" style="color:${isBookmarked ? 'var(--primary)' : 'var(--text-muted)'}; padding:4px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </button>
+              </div>
+
+              <h3 style="font-size:1.1rem; margin:0 0 0.35rem 0; line-height:1.4;">${s.name}</h3>
+              <p class="text-muted" style="font-size:0.85rem; margin-bottom:0.75rem;">${s.provider}</p>
+
+              <div class="dashboard-scholarship-meta">
+                <span>Min CGPA: <strong>${s.eligibility?.minCGPA ?? 'Open'}</strong></span>
+                <span class="dashboard-deadline-pill">${UI.daysUntil(s.deadline) === 0 ? 'Closes today' : `${UI.daysUntil(s.deadline)} days left`}</span>
+              </div>
+            </div>
+
+            <div class="dashboard-scholarship-footer">
+              <div>
+                <small class="text-muted" style="font-size:0.75rem; display:block;">Grant Amount</small>
+                <strong style="color:var(--success); font-size:1.1rem;">${amountStr}</strong>
+              </div>
+              <div class="dashboard-scholarship-actions">
+                ${officialLink
+                  ? `<a href="${officialLink}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Official site ↗</a>`
+                  : `<a href="apply.html?id=${encodeURIComponent(s.id)}" class="btn btn-sm btn-primary">Prepare application</a>`}
+                <a href="apply.html?id=${encodeURIComponent(s.id)}" class="btn btn-sm btn-outline">ScholarPath form</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderRecentApplications(user) {
+      const tbody = document.getElementById('dashboard-recent-apps-body');
+      if (!tbody) return;
+
+      const apps = Storage.getApplications(user.id);
+      if (apps.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted" style="padding:2rem;">No applications submitted yet. Browse our catalog to apply!</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = apps.slice(0, 5).map(app => `
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.875rem 1rem;"><strong class="font-mono" style="color:var(--primary);">${app.id}</strong></td>
+          <td style="padding:0.875rem 1rem;">
+            <div style="font-weight:600; color:var(--heading);">${app.scholarshipName}</div>
+            <small class="text-muted">${app.provider || ''}</small>
+          </td>
+          <td style="padding:0.875rem 1rem;">${UI.formatDate(app.submittedAt)}</td>
+          <td style="padding:0.875rem 1rem;"><strong>${app.amountDisplay || `₹${app.amount}`}</strong></td>
+          <td style="padding:0.875rem 1rem;">
+            <span class="badge ${getBadgeClass(app.status)}">${app.status}</span>
+          </td>
+          <td style="padding:0.875rem 1rem; text-align:right;">
+            <a href="track.html" class="btn btn-sm btn-outline">Track Status →</a>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function getBadgeClass(status) {
+      switch (status) {
+        case 'Approved': return 'badge-success';
+        case 'Verified': return 'badge-primary';
+        case 'Under Review': return 'badge-warning';
+        case 'Rejected': return 'badge-danger';
+        default: return 'badge-info';
+      }
+    }
+
+    function toggleDashboardBookmark(scholarshipId, btn) {
+      const user = Auth.getCurrentUser();
+      if (!user) return;
+      const isNowBookmarked = Storage.toggleBookmark(user.id, scholarshipId);
+
+      const svg = btn.querySelector('svg');
+      if (isNowBookmarked) {
+        btn.style.color = 'var(--primary)';
+        svg.setAttribute('fill', 'currentColor');
+        UI.showToast('Scholarship saved to your bookmarks.', 'success');
+      } else {
+        btn.style.color = 'var(--text-muted)';
+        svg.setAttribute('fill', 'none');
+        UI.showToast('Scholarship removed from bookmarks.', 'info');
+      }
+      renderDashboardStats(user);
+    }
+
+    function openNotificationsModal() {
+      const user = Auth.getCurrentUser();
+      if (!user) return;
+
+      const notifs = Storage.getNotifications(user.id);
+      const contentHTML = notifs.length === 0 ? `
+        <p class="text-muted text-center" style="padding:2rem;">No new notifications.</p>
+      ` : `
+        <div style="display:flex; flex-direction:column; gap:0.75rem; max-height:60vh; overflow-y:auto;">
+          ${notifs.map(n => `
+            <div style="padding:0.75rem 1rem; border-radius:var(--radius-md); background:${n.read ? 'var(--surface)' : 'rgba(79, 70, 229, 0.08)'}; border:1px solid var(--border);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+                <strong style="color:var(--heading); font-size:var(--text-sm);">${n.title || 'Update'}</strong>
+                <small class="text-muted">${UI.formatDate(n.timestamp)}</small>
+              </div>
+              <p style="margin:0; font-size:var(--text-sm); color:var(--text); line-height:1.5;">${n.message}</p>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      UI.showModal('Notifications', contentHTML, [
+        {
+          label: 'Mark All Read',
+          className: 'btn-outline',
+          onClick: () => {
+            notifs.forEach(n => Storage.markNotificationRead(user.id, n.id));
+            const badge = document.getElementById('notif-unread-badge');
+            if (badge) badge.style.display = 'none';
+            UI.closeModal();
+            UI.showToast('All notifications marked as read.', 'info');
+          }
+        },
+        {
+          label: 'Close',
+          className: 'btn-primary',
+          onClick: () => UI.closeModal()
+        }
+      ]);
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('app-sidebar');
+      if (!sidebar) return;
+      const isOpen = sidebar.classList.toggle('open');
+      const overlay = document.getElementById('sidebar-overlay');
+      const toggle = document.getElementById('mobile-sidebar-toggle');
+      if (overlay) {
+        overlay.classList.toggle('show', isOpen);
+        overlay.setAttribute('aria-hidden', String(!isOpen));
+      }
+      if (toggle) toggle.setAttribute('aria-expanded', String(isOpen));
+    }
+  </script>
+</body>
+</html>

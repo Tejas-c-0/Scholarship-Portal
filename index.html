@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ScholarPath helps Indian university students discover scholarships, compare eligibility, and follow official application links.">
+  <title>ScholarPath — Scholarship Discovery & Application Portal</title>
+  
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+
+  <!-- =========================================================================
+       NAVBAR
+       ========================================================================= -->
+  <header>
+    <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main Navigation">
+      <div class="navbar-inner container">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="navbar-brand" aria-label="ScholarPath Home">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <span class="brand-name">Scholar<span class="text-gradient">Path</span></span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="navbar-nav" id="navbar-links" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link active" role="menuitem">Home</a></li>
+          <li role="none"><a href="scholarships.html" class="nav-link" role="menuitem">Scholarships</a></li>
+          <li role="none"><a href="#how-it-works" class="nav-link" role="menuitem">How It Works</a></li>
+          <li role="none"><a href="#testimonials" class="nav-link" role="menuitem">ScholarPath Tools</a></li>
+          <li role="none"><a href="#faq" class="nav-link" role="menuitem">FAQ</a></li>
+        </ul>
+
+        <!-- Navbar Actions (Auth + Theme Toggle) -->
+        <div class="navbar-actions">
+          
+          <!-- Theme Toggle Button -->
+          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <!-- Dynamic Auth Links Container -->
+          <div id="nav-auth-container" style="display: flex; align-items: center; gap: 0.75rem;">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-link active">Home</a>
+        <a href="scholarships.html" class="mobile-link">Scholarships</a>
+        <a href="#how-it-works" class="mobile-link">How It Works</a>
+        <a href="#testimonials" class="mobile-link">ScholarPath Tools</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <div id="mobile-auth-links" style="padding: 1rem 0; display:flex; flex-direction:column; gap:0.5rem;">
+          <a href="login.html" class="btn btn-outline btn-block">Login</a>
+          <a href="register.html" class="btn btn-primary btn-block">Register Free</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION
+       ========================================================================= -->
+  <section class="hero" aria-label="Hero Introduction">
+    <!-- Animated particle floating blobs -->
+    <div class="hero-particles" aria-hidden="true">
+      <div class="hero-particle particle-1"></div>
+      <div class="hero-particle particle-2"></div>
+      <div class="hero-particle particle-3"></div>
+    </div>
+
+    <div class="hero-content container text-center">
+      
+      <!-- Eyebrow Tag -->
+      <div class="hero-eyebrow reveal">
+        <span class="hero-badge-dot"></span>
+        <span>Empowering University Students Across India</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="reveal">
+        Find Your Perfect Scholarship.<br>
+        <span class="text-gradient">Fund Your Education.</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-desc reveal">
+        Compare scholarship eligibility, keep application progress organized, and follow official scheme links when applications are open.
+      </p>
+
+      <!-- CTA Action Buttons -->
+      <div class="hero-actions reveal">
+        <a href="scholarships.html" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Browse Scholarships
+        </a>
+        <a href="#eligibility-quick-check" class="btn btn-outline btn-lg" style="color:#ffffff; border-color:rgba(255,255,255,0.4);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          Check Eligibility
+        </a>
+      </div>
+
+      <!-- Hero Search Bar -->
+      <div class="hero-search reveal">
+        <form id="hero-search-form" onsubmit="handleHeroSearch(event)" style="display:flex; width:100%; align-items:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" style="margin-left: 1rem;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="hero-search-input" placeholder="Search by name, provider (NSP, Tata, Reliance), or degree (B.Tech, BCA)..." aria-label="Search scholarships">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+
+      <!-- Hero Micro Stats -->
+      <div class="reveal" style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:2.5rem; color:rgba(255,255,255,0.75); font-size:0.875rem;">
+        <div>✓ 100% Free for Students</div>
+        <div>✓ Guidance to official application portals</div>
+        <div>✓ Application progress dashboard</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       LIVE STATS COUNTER SECTION
+       ========================================================================= -->
+  <section class="stats-section" aria-label="Key Performance Indicators">
+    <div class="container">
+      <div class="stats-grid">
+        
+        <!-- Stat Card 1 -->
+        <div class="stat-card reveal">
+          <div class="stat-icon-wrap" style="background: rgba(79, 70, 229, 0.1); color: var(--primary);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <div class="stat-number">
+            <span class="counter" id="home-stat-total" data-target="0">0</span>
+          </div>
+          <div class="stat-label">Scholarships in catalog</div>
+        </div>
+
+        <!-- Stat Card 2 -->
+        <div class="stat-card reveal">
+          <div class="stat-icon-wrap" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div class="stat-number">
+            <span class="counter" id="home-stat-open" data-target="0">0</span>
+          </div>
+          <div class="stat-label">Open for applications</div>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div class="stat-card reveal">
+          <div class="stat-icon-wrap" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M15 9.5a3.5 3.5 0 0 0-5 0 3.5 3.5 0 0 0 0 5h2a3.5 3.5 0 0 1 0 5 3.5 3.5 0 0 1-5 0"></path></svg>
+          </div>
+          <div class="stat-number">
+            <span class="counter" id="home-stat-links" data-target="0">0</span>
+          </div>
+          <div class="stat-label">Catalog records with official links</div>
+        </div>
+
+        <!-- Stat Card 4 -->
+        <div class="stat-card reveal">
+          <div class="stat-icon-wrap" style="background: rgba(14, 165, 233, 0.1); color: var(--info);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="stat-number">
+            <span class="counter" id="home-stat-closing" data-target="0">0</span>
+          </div>
+          <div class="stat-label">Closing in the next 30 days</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOW IT WORKS SECTION (3-STEP)
+       ========================================================================= -->
+  <section class="how-it-works section-padding" id="how-it-works" aria-label="How ScholarPath works">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="badge badge-primary">Simple 3-Step Journey</span>
+        <h2 style="margin-top:0.5rem;">How ScholarPath Works</h2>
+        <p class="text-muted" style="max-width:600px; margin:0 auto;">Find relevant listings, follow official application instructions, and keep your own progress organized.</p>
+      </div>
+
+      <div class="steps-grid" style="margin-top:3rem;">
+        
+        <!-- Step 1 -->
+        <div class="step-item reveal">
+          <div class="step-icon-wrap" style="background: var(--gradient-primary);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <div class="step-number">01</div>
+          </div>
+          <h3>Build Your Academic Profile</h3>
+          <p>Add your university, degree, CGPA, category, and family income to get more relevant scholarship suggestions.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-item reveal">
+          <div class="step-icon-wrap" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            <div class="step-number">02</div>
+          </div>
+          <h3>Get Smart Recommendations</h3>
+          <p>Our recommendation engine compares your profile with scholarship requirements and highlights relevant matches.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-item reveal">
+          <div class="step-icon-wrap" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <div class="step-number">03</div>
+          </div>
+          <h3>Apply & Track Your Progress</h3>
+          <p>Continue through the official scheme portal, then keep your application notes and status organized in your dashboard.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FEATURED SCHOLARSHIPS CAROUSEL
+       ========================================================================= -->
+  <section class="section-padding" id="featured-scholarships" aria-label="Featured Scholarships Carousel">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="badge badge-warning">Current opportunities</span>
+          <h2 style="margin:0.5rem 0 0 0;">Open scholarships</h2>
+        </div>
+        <div style="display:flex; gap:0.5rem; align-items:center;">
+          <a href="scholarships.html" class="btn btn-outline btn-sm" id="home-catalog-count-link">Browse catalog →</a>
+          <button class="btn btn-icon btn-outline" id="carousel-prev" aria-label="Previous slide">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="btn btn-icon btn-outline" id="carousel-next" aria-label="Next slide">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="carousel-container" id="featured-carousel-wrap" style="overflow:hidden; position:relative;">
+        <div class="carousel-track" id="featured-carousel-track" style="display:flex; gap:1.5rem; transition: transform 0.4s ease-in-out;">
+          <!-- Dynamically populated by JS from Storage.getScholarships() -->
+        </div>
+      </div>
+
+      <!-- Carousel Dots Indicator -->
+      <div class="carousel-dots" id="carousel-dots" style="display:flex; justify-content:center; gap:0.5rem; margin-top:1.5rem;">
+        <!-- Dots injected here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       QUICK ELIGIBILITY CHECKER (INTERACTIVE)
+       ========================================================================= -->
+  <section class="section-padding" id="eligibility-quick-check" style="background:var(--bg-alt);">
+    <div class="container">
+      <div class="card glass-card" style="padding: 2.5rem; max-width:960px; margin:0 auto; border:1px solid var(--border);">
+        <div class="text-center" style="margin-bottom:2rem;">
+          <span class="badge badge-primary">Instant Eligibility Matcher</span>
+          <h2 style="margin-top:0.5rem;">Will You Qualify? Check in 10 Seconds</h2>
+          <p class="text-muted">Enter your basic academic & financial background to see how many scholarships you qualify for right now.</p>
+        </div>
+
+        <form id="quick-eligibility-form" onsubmit="handleQuickCheck(event)" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1.25rem;">
+          
+          <div class="form-group">
+            <label class="form-label" for="qc-cgpa">Your Current CGPA</label>
+            <input type="number" id="qc-cgpa" class="form-input" placeholder="e.g. 8.5" step="0.1" min="0" max="10" required value="8.0">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qc-income">Family Annual Income</label>
+            <select id="qc-income" class="form-select" required>
+              <option value="150000">Below ₹1.5 Lakhs</option>
+              <option value="250000" selected>₹1.5 Lakh - ₹2.5 Lakhs</option>
+              <option value="500000">₹2.5 Lakh - ₹5 Lakhs</option>
+              <option value="800000">₹5 Lakh - ₹8 Lakhs</option>
+              <option value="1500000">Above ₹8 Lakhs</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qc-course">Your Course / Degree</label>
+            <select id="qc-course" class="form-select" required>
+              <option value="B.Tech" selected>B.Tech / B.E (Engineering)</option>
+              <option value="BCA">BCA (Computer Applications)</option>
+              <option value="B.Sc">B.Sc (Science)</option>
+              <option value="MCA">MCA (Postgrad)</option>
+              <option value="MBA">MBA (Management)</option>
+              <option value="Other">Other Degree</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qc-category">Social Category</label>
+            <select id="qc-category" class="form-select" required>
+              <option value="General" selected>General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1; display:flex; justify-content:center; margin-top:0.5rem;">
+            <button type="submit" class="btn btn-primary btn-lg" style="min-width:240px;">
+              Check My Matches Now
+            </button>
+          </div>
+        </form>
+
+        <!-- Result Box (Hidden until calculated) -->
+        <div id="quick-check-result" style="display:none; margin-top:2rem; padding:1.5rem; background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.3); border-radius:var(--radius-lg); text-align:center;">
+          <h3 style="color:var(--success); margin:0 0 0.5rem 0;" id="qc-result-headline">You Qualify for 12 Scholarships!</h3>
+          <p id="qc-result-detail" class="text-muted" style="margin:0 0 1rem 0;">Total available pool: <strong>₹6,80,000+</strong> annually.</p>
+          <a href="scholarships.html" id="qc-view-btn" class="btn btn-success">View Eligible Scholarships →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       TESTIMONIALS SECTION
+       ========================================================================= -->
+  <section class="section-padding" id="testimonials" aria-label="ScholarPath Tools">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="badge badge-success">ScholarPath Tools</span>
+        <h2 style="margin-top:0.5rem;">A clearer way to manage your search</h2>
+        <p class="text-muted" style="max-width:600px; margin:0 auto;">Explore the built-in tools that help you compare eligibility, save listings, and organize applications.</p>
+      </div>
+
+      <div class="grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; margin-top:3rem;" id="testimonials-grid">
+        <!-- Rendered dynamically from window.ScholarData.testimonials -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FAQ ACCORDION SECTION
+       ========================================================================= -->
+  <section class="section-padding" id="faq" style="background:var(--bg-alt);" aria-label="Frequently Asked Questions">
+    <div class="container" style="max-width:860px;">
+      <div class="section-header text-center reveal">
+        <span class="badge badge-primary">Got Questions?</span>
+        <h2 style="margin-top:0.5rem;">Frequently Asked Questions</h2>
+        <p class="text-muted">Everything you need to know about eligibility, government portals, and verification.</p>
+      </div>
+
+      <div class="accordion" id="faq-accordion" style="margin-top:2.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+        <!-- Injected dynamically from ScholarData.faqs -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CALL TO ACTION BANNER
+       ========================================================================= -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="card glass-card text-center" style="background:var(--gradient-primary); color:#ffffff; padding:3.5rem 2rem; border-radius:var(--radius-xl); position:relative; overflow:hidden;">
+        <h2 style="color:#ffffff; font-size:2.25rem; margin-bottom:1rem;">Ready to Fund Your University Education?</h2>
+        <p style="color:rgba(255,255,255,0.85); max-width:640px; margin:0 auto 2rem auto; font-size:1.125rem;">
+          Build a profile, find relevant listings, and keep your application journey organized—all in one place.
+        </p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="register.html" class="btn btn-lg" style="background:#ffffff; color:var(--primary); font-weight:600;">Get Started Free →</a>
+          <a href="scholarships.html" class="btn btn-lg btn-outline" style="color:#ffffff; border-color:rgba(255,255,255,0.5);">Browse Catalog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:2.5rem; margin-bottom:3rem;">
+        
+        <!-- Col 1: Brand & Project Context -->
+        <div>
+          <a href="index.html" class="navbar-brand" style="margin-bottom:1rem; display:inline-flex;">
+            <div class="brand-logo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </div>
+            <span class="brand-name">Scholar<span class="text-gradient">Path</span></span>
+          </a>
+          <p class="text-muted" style="font-size:var(--text-sm); line-height:1.6; margin-top:0.75rem;">
+            A scholarship discovery and application organizer for students exploring state, central, and private funding.
+          </p>
+          <div style="margin-top:1rem; font-size:var(--text-xs); color:var(--text-muted);">
+            <strong>B.Tech CSE Mini Project</strong><br>
+            Dayananda Sagar University (DSU)
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 style="font-size:var(--text-base); margin-bottom:1rem;">Explore</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem; font-size:var(--text-sm);">
+            <li><a href="scholarships.html" class="text-muted">Browse Scholarships</a></li>
+            <li><a href="scholarships.html?category=Merit" class="text-muted">Merit Based Grants</a></li>
+            <li><a href="scholarships.html?category=Means" class="text-muted">Need-Based (EWS) Funds</a></li>
+            <li><a href="scholarships.html?category=Science" class="text-muted">Science & Research Fellowships</a></li>
+            <li><a href="#eligibility-quick-check" class="text-muted">Quick Eligibility Matcher</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Student Portal -->
+        <div>
+          <h4 style="font-size:var(--text-base); margin-bottom:1rem;">Student Portal</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem; font-size:var(--text-sm);">
+            <li><a href="register.html" class="text-muted">Create Account</a></li>
+            <li><a href="login.html" class="text-muted">Student Login</a></li>
+            <li><a href="dashboard.html" class="text-muted">Student Dashboard</a></li>
+            <li><a href="track.html" class="text-muted">Track My Application</a></li>
+            <li><a href="admin.html" class="text-muted">Admin Access</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Project Team -->
+        <div>
+          <h4 style="font-size:var(--text-base); margin-bottom:1rem;">Developed By</h4>
+          <p class="text-muted" style="font-size:var(--text-sm); line-height:1.6;">
+            <strong>Team Members:</strong><br>
+            • Syed Fazil<br>
+            • Tejas C<br>
+            • Puneeth Kumar
+          </p>
+          <p class="text-muted" style="font-size:var(--text-xs); margin-top:0.5rem;">
+            Department of Computer Science & Engineering<br>
+            Dayananda Sagar University, Bengaluru
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Bottom Bar -->
+      <div style="border-top:1px solid var(--border); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:var(--text-xs); color:var(--text-muted);">
+        <div>
+          © <span id="copyright-year">2026</span> ScholarPath. Built with HTML5, CSS3 & Vanilla JavaScript.
+        </div>
+        <div style="display:flex; gap:1rem;">
+          <a href="login.html" class="text-muted">Demo Credentials: Student / Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Core JavaScript Libraries -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+
+  <!-- Page Initialization Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize UI Theme, Navbar, Scroll-reveal, Counters, Ripples
+      UI.initTheme();
+      UI.initNavbar();
+      UI.initScrollReveal();
+      updateHomeMetrics();
+      UI.initCounters();
+      UI.initRipples();
+
+      // 2. Adjust Navbar Auth links based on session
+      updateNavbarSession();
+
+      // 3. Render Featured Scholarships Carousel
+      renderFeaturedCarousel();
+
+      // 4. Render ScholarPath feature cards
+      renderTestimonials();
+
+      // 5. Render FAQ Accordion
+      renderFAQs();
+    });
+
+    // Update navbar buttons based on login status
+    function updateNavbarSession() {
+      const authContainer = document.getElementById('nav-auth-container');
+      const mobileAuthContainer = document.getElementById('mobile-auth-links');
+      const user = Auth.getCurrentUser();
+
+      if (user) {
+        const dashboardUrl = user.role === 'admin' ? 'admin.html' : 'dashboard.html';
+        const html = `
+          <a href="${dashboardUrl}" class="btn btn-primary btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            ${user.name ? user.name.split(' ')[0] : 'Dashboard'}
+          </a>
+          <button onclick="Auth.logout()" class="btn btn-outline btn-sm" title="Sign out">Logout</button>
+        `;
+        if (authContainer) authContainer.innerHTML = html;
+        if (mobileAuthContainer) mobileAuthContainer.innerHTML = html;
+      }
+    }
+
+    // Hero search handler
+    function handleHeroSearch(e) {
+      e.preventDefault();
+      const query = document.getElementById('hero-search-input')?.value.trim();
+      window.location.href = `scholarships.html${query ? `?q=${encodeURIComponent(query)}` : ''}`;
+    }
+
+    function getOpenScholarships() {
+      return Storage.getScholarships().filter(s => {
+        const days = UI.daysUntil(s.deadline);
+        return Number.isFinite(days) && days >= 0;
+      });
+    }
+
+    function updateHomeMetrics() {
+      const scholarships = Storage.getScholarships();
+      const openScholarships = getOpenScholarships();
+      const closingSoon = openScholarships.filter(s => UI.daysUntil(s.deadline) <= 30).length;
+      const metrics = {
+        'home-stat-total': scholarships.length,
+        'home-stat-open': openScholarships.length,
+        'home-stat-links': scholarships.filter(s => UI.getOfficialApplyLink(s)).length,
+        'home-stat-closing': closingSoon
+      };
+
+      Object.entries(metrics).forEach(([id, value]) => {
+        const counter = document.getElementById(id);
+        if (counter) {
+          counter.dataset.target = String(value);
+          counter.textContent = String(value);
+        }
+      });
+
+      const catalogLink = document.getElementById('home-catalog-count-link');
+      if (catalogLink) catalogLink.textContent = `Browse ${scholarships.length} catalog listings →`;
+      const copyrightYear = document.getElementById('copyright-year');
+      if (copyrightYear) copyrightYear.textContent = String(new Date().getFullYear());
+    }
+
+    // Featured Scholarships Carousel
+    let carouselIndex = 0;
+    let carouselTimer = null;
+    let carouselItemsCount = 0;
+
+    function renderFeaturedCarousel() {
+      const track = document.getElementById('featured-carousel-track');
+      const dotsContainer = document.getElementById('carousel-dots');
+      if (!track) return;
+
+      const scholarships = getOpenScholarships()
+        .sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)) ||
+          UI.daysUntil(a.deadline) - UI.daysUntil(b.deadline))
+        .slice(0, 6);
+      carouselItemsCount = scholarships.length;
+
+      if (scholarships.length === 0) {
+        track.innerHTML = `
+          <div class="home-empty-opportunities">
+            <div class="home-empty-icon" aria-hidden="true">✓</div>
+            <div>
+              <h3>No saved scholarships are open right now</h3>
+              <p class="text-muted">All bundled sample deadlines have passed. Check the official portal for current application windows.</p>
+            </div>
+            <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit National Scholarship Portal ↗</a>
+          </div>`;
+        if (dotsContainer) dotsContainer.innerHTML = '';
+        document.getElementById('carousel-prev')?.setAttribute('hidden', '');
+        document.getElementById('carousel-next')?.setAttribute('hidden', '');
+        return;
+      }
+      document.getElementById('carousel-prev')?.removeAttribute('hidden');
+      document.getElementById('carousel-next')?.removeAttribute('hidden');
+
+      track.innerHTML = scholarships.map((s, idx) => {
+        const days = UI.daysUntil(s.deadline);
+        const deadlineClass = UI.getDeadlineClass(s.deadline);
+        const amountDisplay = s.amountDisplay || `₹${s.amount.toLocaleString('en-IN')}/year`;
+        const officialLink = UI.getOfficialApplyLink(s);
+
+        return `
+          <div class="card glass-card scholarship-card" style="min-width:320px; max-width:360px; flex:0 0 340px; display:flex; flex-direction:column; justify-content:space-between; padding:1.5rem;">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+                <span class="badge badge-primary">${s.category || 'General'}</span>
+                <span class="badge ${deadlineClass}">${days > 0 ? `${days}d left` : 'Closes today'}</span>
+              </div>
+              <h3 style="font-size:1.15rem; margin:0 0 0.5rem 0; line-height:1.4;">
+                <a href="scholarships.html" style="color:inherit; text-decoration:none;">${s.name}</a>
+              </h3>
+              <p class="text-muted" style="font-size:0.875rem; margin-bottom:1rem;">${s.provider}</p>
+              <p style="font-size:0.875rem; color:var(--text); line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">
+                ${s.description}
+              </p>
+            </div>
+            
+            <div style="border-top:1px solid var(--border); padding-top:1rem; margin-top:1rem; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <small class="text-muted" style="display:block; font-size:0.75rem;">Award Amount</small>
+                <strong style="color:var(--success); font-size:1.1rem;">${amountDisplay}</strong>
+              </div>
+              ${officialLink
+                ? `<a href="${officialLink}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Official site ↗</a>`
+                : `<a href="apply.html?id=${encodeURIComponent(s.id)}" class="btn btn-sm btn-primary">View details</a>`}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Create dots
+      if (dotsContainer) {
+        dotsContainer.innerHTML = scholarships.map((_, i) => `
+          <button class="carousel-dot ${i === 0 ? 'active' : ''}" style="width:10px; height:10px; border-radius:50%; border:none; background:${i === 0 ? 'var(--primary)' : 'var(--border)'}; cursor:pointer;" onclick="setCarouselSlide(${i})" aria-label="Slide ${i+1}"></button>
+        `).join('');
+      }
+
+      // Next / Prev listeners
+      document.getElementById('carousel-prev')?.addEventListener('click', prevSlide);
+      document.getElementById('carousel-next')?.addEventListener('click', nextSlide);
+
+      if (carouselItemsCount > 1) {
+        startCarouselAuto();
+        track.parentElement.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+        track.parentElement.addEventListener('mouseleave', startCarouselAuto);
+      }
+    }
+
+    function setCarouselSlide(index) {
+      const track = document.getElementById('featured-carousel-track');
+      if (!track) return;
+      if (carouselItemsCount < 1) return;
+      carouselIndex = (index + carouselItemsCount) % carouselItemsCount;
+      const cardWidth = 340 + 24; // width + gap
+      track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
+
+      // Update dots
+      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.style.background = i === carouselIndex ? 'var(--primary)' : 'var(--border)';
+      });
+    }
+
+    function nextSlide() { setCarouselSlide(carouselIndex + 1); }
+    function prevSlide() { setCarouselSlide(carouselIndex - 1); }
+    function startCarouselAuto() {
+      clearInterval(carouselTimer);
+      carouselTimer = setInterval(nextSlide, 4500);
+    }
+
+    // Quick Eligibility Check
+    function handleQuickCheck(e) {
+      e.preventDefault();
+      const cgpa = parseFloat(document.getElementById('qc-cgpa').value) || 0;
+      const income = parseFloat(document.getElementById('qc-income').value) || 0;
+      const course = document.getElementById('qc-course').value;
+      const category = document.getElementById('qc-category').value;
+
+      const scholarships = getOpenScholarships();
+      const matched = scholarships.filter(s => {
+        const minCGPA = s.eligibility?.minCGPA ?? 0;
+        const maxIncome = s.eligibility?.maxIncome ?? Infinity;
+        const cats = s.eligibility?.categories || [];
+        const courses = s.eligibility?.courses || [];
+
+        const cgpaOk = cgpa >= minCGPA;
+        const incomeOk = income <= maxIncome;
+        const catOk = cats.length === 0 || cats.some(c => String(c).toLowerCase() === category.toLowerCase());
+        const courseOk = courses.length === 0 || courses.some(c => c.toLowerCase().includes(course.toLowerCase()));
+
+        return cgpaOk && incomeOk && catOk && courseOk;
+      });
+
+      const resultBox = document.getElementById('quick-check-result');
+      const headline = document.getElementById('qc-result-headline');
+      const detail = document.getElementById('qc-result-detail');
+      const viewBtn = document.getElementById('qc-view-btn');
+
+      if (resultBox) {
+        resultBox.style.display = 'block';
+        if (matched.length > 0) {
+          headline.textContent = `You match ${matched.length} open scholarship${matched.length === 1 ? '' : 's'}`;
+          headline.style.color = 'var(--success)';
+          detail.textContent = 'Review the eligibility details and official application links for your matches.';
+          viewBtn.href = 'scholarships.html';
+          viewBtn.removeAttribute('target');
+          viewBtn.removeAttribute('rel');
+          viewBtn.textContent = 'View matched scholarships →';
+          viewBtn.style.display = 'inline-block';
+        } else {
+          headline.textContent = 'No open scholarships match these details right now';
+          headline.style.color = 'var(--warning)';
+          detail.textContent = 'Try the official National Scholarship Portal for current application windows, or browse the catalog for the next cycle.';
+          viewBtn.href = 'https://scholarships.gov.in/';
+          viewBtn.target = '_blank';
+          viewBtn.rel = 'noopener noreferrer';
+          viewBtn.textContent = 'Check official portal ↗';
+          viewBtn.style.display = 'inline-block';
+        }
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // Product features rendering
+    function renderTestimonials() {
+      const grid = document.getElementById('testimonials-grid');
+      if (!grid) return;
+
+      const items = [
+        {
+          title: 'Eligibility at a glance',
+          description: 'Compare course, academic, and income requirements before spending time on an application.',
+          icon: '<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>'
+        },
+        {
+          title: 'Official application links',
+          description: 'Continue to the listed scheme or provider website for the current rules and application window.',
+          icon: '<path d="M14 3h7v7"></path><path d="M10 14 21 3"></path><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path>'
+        },
+        {
+          title: 'A personal application tracker',
+          description: 'Save scholarships and keep your own application records together in one dashboard.',
+          icon: '<path d="M9 11 12 14 22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>'
+        }
+      ];
+      grid.innerHTML = items.map(item => `
+        <div class="card glass-card" style="padding:1.75rem; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="home-feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${item.icon}</svg>
+            </div>
+            <h3 style="margin:0 0 0.6rem; color:var(--heading);">${item.title}</h3>
+            <p class="text-muted" style="font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">${item.description}</p>
+          </div>
+          <a href="scholarships.html" class="home-feature-link">Explore the catalog <span aria-hidden="true">→</span></a>
+        </div>
+      `).join('');
+    }
+
+    // FAQ Accordion Rendering
+    function renderFAQs() {
+      const container = document.getElementById('faq-accordion');
+      if (!container || !window.ScholarData?.faqs) return;
+
+      container.innerHTML = window.ScholarData.faqs.map((faq, i) => `
+        <div class="card" style="padding:0; overflow:hidden; border:1px solid var(--border);">
+          <button class="faq-question-btn" onclick="toggleFaq(${i})" aria-expanded="false" style="width:100%; text-align:left; padding:1.25rem 1.5rem; background:none; border:none; display:flex; justify-content:space-between; align-items:center; font-size:1.05rem; font-weight:600; color:var(--heading); cursor:pointer;">
+            <span>${faq.q || faq.question}</span>
+            <svg class="faq-icon" id="faq-icon-${i}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform 0.3s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer-pane" id="faq-answer-${i}" style="display:none; padding:0 1.5rem 1.25rem 1.5rem; color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
+            ${faq.a || faq.answer}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleFaq(index) {
+      const pane = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      if (!pane) return;
+
+      const isHidden = pane.style.display === 'none';
+      pane.style.display = isHidden ? 'block' : 'none';
+      if (icon) {
+        icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    }
+  </script>
+</body>
+</html>
