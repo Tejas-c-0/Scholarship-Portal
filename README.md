@@ -13,6 +13,7 @@ Explore scholarship listings, compare profile-based eligibility, and keep applic
 ![Vanilla JavaScript](https://img.shields.io/badge/Vanilla_JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=222222)
 ![No build step](https://img.shields.io/badge/No_build_step-2EA44F?style=for-the-badge)
 ![Browser storage](https://img.shields.io/badge/Browser_storage-localStorage-6E56CF?style=for-the-badge)
+[![Deploy to GitHub Pages](https://github.com/Tejas-c-0/Scholarship-Portal/actions/workflows/pages.yml/badge.svg)](https://github.com/Tejas-c-0/Scholarship-Portal/actions/workflows/pages.yml)
 
 </div>
 
